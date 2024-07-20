@@ -1,3 +1,4 @@
+import { Providers } from "@/app/Providers";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
@@ -16,7 +17,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={inter.className}>
+        <Providers>
+          <div className="min-h-screen bg-[#fffffe] pb-8 text-[#101010] red-light dark:bg-[#101010] dark:text-[#d4d4d4] dark:red-dark">
+            <div className="px-6 red-light dark:red-dark">{children}</div>
+          </div>
+        </Providers>
+      </body>
     </html>
   );
 }
